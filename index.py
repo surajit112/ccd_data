@@ -45,7 +45,7 @@ if __name__ == "__main__":
     )
 
     date = st.sidebar.multiselect(
-        "Select the Date:",
+        "Select the Date (Only One):",
         options=df["Date"].unique(),
         default=df["Date"].unique()[0],
     )
@@ -59,10 +59,10 @@ if __name__ == "__main__":
     df_selection = df.query(
         "device_id == @dev_id & Date ==@date"
     )
-    st.markdown("###")
-    total_power = round(float(df_selection["power"].sum()),2)
-    st.subheader(f"Total Power: {total_power:,}")
-    st.markdown("""---""")
+    # st.markdown("###")
+    # total_power = round(float(df_selection["power"].sum()),2)
+    # st.subheader(f"Total Power: {total_power:,}")
+    # st.markdown("""---""")
     st.markdown("###")
     st.subheader("Parameters Plots")
     multiplePlots(params, df_selection)
